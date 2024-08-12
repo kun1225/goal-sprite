@@ -1,0 +1,9 @@
+{
+  "name": "goal-sprite-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/goal-sprite-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["goal-sprite"],
+  "// targets": "to see all targets run: nx show project goal-sprite-e2e --web",
+  "targets": {}
+}

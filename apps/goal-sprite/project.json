@@ -1,0 +1,9 @@
+{
+  "name": "goal-sprite",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/goal-sprite",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project goal-sprite --web",
+  "targets": {}
+}
