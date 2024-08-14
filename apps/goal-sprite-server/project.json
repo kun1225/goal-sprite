@@ -1,0 +1,26 @@
+{
+  "name": "goal-sprite-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/goal-sprite-server/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "goal-sprite-server:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "goal-sprite-server:build:development"
+        },
+        "production": {
+          "buildTarget": "goal-sprite-server:build:production"
+        }
+      }
+    }
+  }
+}
