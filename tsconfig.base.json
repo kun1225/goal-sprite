@@ -15,8 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@goal-sprite/shadcn-ui": ["shared/shadcn-ui/src/index.ts"],
-      "@goal-sprite/shadcn-ui/server": ["shared/shadcn-ui/src/server.ts"]
+      "@goal-sprite/shadcn-ui": ["./shared/shadcn-ui/src/index.ts"],
+      "@goal-sprite/shadcn-ui/server": ["./shared/shadcn-ui/src/server.ts"],
+      "@goal-sprite/shared/shadcn-ui/src": ["./shared/shadcn-ui/src/index.ts"],
+      "@goal-sprite/shared/shadcn-ui/src/*": ["./shared/shadcn-ui/src/*"],
+      "@goal-sprite/shared/shadcn-ui/src/components/ui/*": [
+        "./shared/shadcn-ui/src/components/ui/*"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
