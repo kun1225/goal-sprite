@@ -1,62 +1,30 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  Button,
-  Input,
-} from '@goal-sprite/shadcn-ui';
-
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: 'Username must be at least 2 characters.',
-  }),
-});
+import { useState } from 'react';
+// Components
+import Link from 'next/link';
+import LoginForm from './_components/login-form';
+import RegisterForm from './_components/register-form';
+import { Button } from '@goal-sprite/shadcn-ui';
 
 export default function Page() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: '',
-    },
-  });
+  const [isLoginForm, setIsLoginForm] = useState(true);
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+    <div className="flex flex-col justify-center mx-auto gap-4 min-h-screen max-w-[800px] p-edge">
+      <Link href="/" className="text-sm">
+        Back to homepage
+      </Link>
+
+      {isLoginForm ? <LoginForm /> : <RegisterForm />}
+
+      <Button
+        className="self-start"
+        variant="link-ghost"
+        onClick={() => setIsLoginForm(!isLoginForm)}
+      >
+        {isLoginForm ? "Don't have an account?" : 'Have a account?'}
+      </Button>
+    </div>
   );
 }
